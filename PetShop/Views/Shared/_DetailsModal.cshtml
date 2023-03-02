@@ -1,0 +1,45 @@
+﻿@model Animal
+<button class="details-button btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal@(Model.Id)">Details</button>
+<!-- The Modal -->
+<div class="modal" id="myModal@(Model.Id)">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">@Model.Name</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="details">
+                    <div class="modal-item">
+                        Age: @Model.Age
+                    </div>
+                    <div class="modal-item">
+                        Category: @Model.CategoryId
+                    </div>
+                    <div class="modal-item">
+                        Description: @Model.Description
+                    </div>
+                   @Html.Partial("_Comments", Model.Comments)
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                <form class="comment-form" method="post" asp-controller="Home" asp-action="AddComment">
+                    <div>
+                        <p><input asp maxlength="300" type="text" placeholder="Enter Content" id="content" name="content" /></p>
+                        <input type="number" hidden="hidden" value="@Model.Id" id="animalId" name="animalId">
+                    </div>
+                    <input type="submit" value="Add comment" class="btn btn-success">
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

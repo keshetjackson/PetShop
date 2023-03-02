@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Animal>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1 class="home-title">Welcome to Petropolis</h1>
+<div class="container home">
+    @foreach (var animal in Model)
+    {
+        <div class="item">
+            <h1>
+                 @animal.Name
+            </h1>
+                <img class="pic" src="@animal.Picture">
+                <div>number of comments : @animal.Comments.Count</div>
+          @Html.Partial("_DetailsModal", animal)
+           
+        </div>
+    }
+</div>
+

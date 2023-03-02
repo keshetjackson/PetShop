@@ -1,0 +1,58 @@
+﻿@model PetShop.Models.Animal
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Animal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h1>Edit @Model.Name</h1>
+
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
+            <input name="id" type="hidden" value="@Model.Id" />
+            <div>
+                <label asp-for="Name"></label>
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Age"></label>
+                <input class="form-control" asp-for="Age" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Description"></label>
+                <input class="form-control" asp-for="Description" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture" class="control-label"></label>
+                <input name="file" type="file" accept="image/*" class="form-control" />
+            </div>
+            <div>
+                <label >Category</label>
+                <select asp-for="CategoryId" id="categoryId">
+                    <option value="@ViewBag.CategoryId">@ViewBag.CategoryName</option>
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option class="category-item" action="Catalog@(@category.Id)" value="@category.Id">@category.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Update</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-outline-success" asp-action="Index"> <- Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

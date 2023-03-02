@@ -1,0 +1,224 @@
+/*#region starter */
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+/*#endregion */
+
+/*#region item */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.details {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pic{
+    display: flow;
+    width: 15rem;
+    height: 12rem; 
+}
+
+.item {
+    border: 4px solid;
+    max-width: 20rem;
+    width: 400px;
+    height: fit-content;
+    text-align: center;
+    margin: 0 2rem 2rem 0;
+    border-image: linear-gradient(turquoise, greenyellow) 1;
+}
+
+
+
+
+.details-button{
+    margin:0.5rem;
+}
+
+@media all and (max-width: 500px) {
+    .container {
+        /* On small screens, we are no longer using row direction but column */
+        flex-direction: column;
+        margin-top: 120px;
+    }
+}
+/*#endregion */
+
+
+/*#region dropdown
+
+*/
+
+
+.dropdown-catalog > * {
+    color: green;
+}
+
+.dropdown-div {
+    position: relative;
+    top: 50%;
+    left: 48.5%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    height:1.5rem;
+}
+
+
+/*#endregion *//*#region animations */
+
+
+/* Add some animation to the navbar links */
+.navbar-nav li {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add some animation to the main content */
+main {
+    animation: slideUp 1s ease-in-out;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add some animation to the footer */
+footer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Add some hover animation to the catalog items */
+.card:hover {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*#endregion */
+
+/*#region modal */
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-item {
+    border: 1px groove green;
+    height: fit-content;
+    text-align: center;
+    margin: 0 1rem 1rem 1rem;
+    padding: 0.5rem;
+}
+
+.comment-form  {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+    .comment-form input[type="text"] {
+        flex: 1;
+        margin: 1rem 1rem 0 1rem;
+    }
+
+    .comment-form input[type="submit"] {
+        margin-left: 1rem;
+    }
+
+
+
+.modal {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+    .modal.show {
+        opacity: 1;
+    }
+
+.modal-dialog {
+    animation: slideUp 0.5s ease-in-out;
+}
+
+.modal-dialog-close {
+    animation: fadeOut 0.25s ease-in-out;
+}
+
+/*#endregion */
+
+form{
+}
+.form-control {
+    width: 15rem;
+}

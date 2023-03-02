@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Comment>
+
+<div class="comments modal-item">
+    Comments : <br>
+    @foreach (var comment in Model)
+    {
+        <div class="comment">@comment.Content</div>
+        <hr />
+    }
+</div>

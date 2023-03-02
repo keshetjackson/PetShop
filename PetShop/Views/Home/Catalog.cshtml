@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Animal>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<form method="get" action="Catalog">
+   <select class="dropdown dropdown-catalog dropdown-" id="catalog-categories" name="categoryId" onchange="this.form.submit()">
+    <option class="dropdown-selected" value="@ViewBag.CategoryId">@ViewBag.CategoryName</option>
+    <option class="category-item dropdown-item" value="0">All</option>
+    @foreach (var category in ViewBag.Categories)
+    {
+        <option class="category-item dropdown-item" value="@category.Id">@category.Name</option>
+    }
+</select>
+    </div>
+</form>
+<div class="container home">
+    @foreach (var animal in Model)
+    {
+        <div class="item">
+            <h1>
+                @animal.Name
+            </h1>
+            <img class="pic" src="@animal.Picture">
+            @Html.Partial("_DetailsModal",animal)
+
+        </div>
+    }
+</div>
