@@ -49,6 +49,7 @@ body {
     display: flow;
     width: 15rem;
     height: 12rem; 
+    margin: auto;
 }
 
 .item {
@@ -58,7 +59,7 @@ body {
     height: fit-content;
     text-align: center;
     margin: 0 2rem 2rem 0;
-    border-image: linear-gradient(turquoise, greenyellow) 1;
+    border-image: linear-gradient(turquoise, greenyellow) 1;    
 }
 
 
